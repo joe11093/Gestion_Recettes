@@ -1,0 +1,6 @@
+C:\Users\lenovo\source\repos\Gestion_Recettes\Share\bin\Debug\Share.dll.config
+C:\Users\lenovo\source\repos\Gestion_Recettes\Share\bin\Debug\Share.dll
+C:\Users\lenovo\source\repos\Gestion_Recettes\Share\bin\Debug\Share.pdb
+C:\Users\lenovo\source\repos\Gestion_Recettes\Share\obj\Debug\Share.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\source\repos\Gestion_Recettes\Share\obj\Debug\Share.dll
+C:\Users\lenovo\source\repos\Gestion_Recettes\Share\obj\Debug\Share.pdb
