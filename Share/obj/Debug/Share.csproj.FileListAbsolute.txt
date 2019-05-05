@@ -10,4 +10,3 @@ C:\Users\josep\source\repos\Gestion_Recettes\Share\bin\Debug\Share.pdb
 C:\Users\josep\source\repos\Gestion_Recettes\Share\obj\Debug\Share.csproj.CoreCompileInputs.cache
 C:\Users\josep\source\repos\Gestion_Recettes\Share\obj\Debug\Share.dll
 C:\Users\josep\source\repos\Gestion_Recettes\Share\obj\Debug\Share.pdb
-C:\Users\josep\source\repos\Gestion_Recettes\Share\obj\Debug\Share.csprojAssemblyReference.cache

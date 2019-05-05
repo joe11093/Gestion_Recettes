@@ -14,7 +14,7 @@ namespace HebergementService
         {
             //ClientBase<IServiceRecettes>.CacheSettings = CacheSettings.AlwaysOn;
             // Host the service within this EXE console application.
-            using (ServiceHost serviceHost = new ServiceHost(typeof(ServiceRecettes)))
+            using (ServiceHost serviceHost = new ServiceHost(typeof(Service)))
             {
                 try
                 {

@@ -48,7 +48,7 @@
     <Compile Include="IServiceRecettes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recette.cs" />
-    <Compile Include="ServiceRecettes.cs" />
+    <Compile Include="Service.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

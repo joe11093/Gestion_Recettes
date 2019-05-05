@@ -1,11 +1,10 @@
+C:\Users\josep\source\repos\Gestion_Recettes\ServiceRecettes\obj\Debug\ServiceRecettes.csproj.CoreCompileInputs.cache
 C:\Users\josep\source\repos\Gestion_Recettes\ServiceRecettes\bin\Debug\ServiceRecettes.exe.config
 C:\Users\josep\source\repos\Gestion_Recettes\ServiceRecettes\bin\Debug\ServiceRecettes.exe
 C:\Users\josep\source\repos\Gestion_Recettes\ServiceRecettes\bin\Debug\ServiceRecettes.pdb
 C:\Users\josep\source\repos\Gestion_Recettes\ServiceRecettes\bin\Debug\Share.dll
 C:\Users\josep\source\repos\Gestion_Recettes\ServiceRecettes\bin\Debug\Share.pdb
 C:\Users\josep\source\repos\Gestion_Recettes\ServiceRecettes\bin\Debug\Share.dll.config
-C:\Users\josep\source\repos\Gestion_Recettes\ServiceRecettes\obj\Debug\ServiceRecettes.csprojAssemblyReference.cache
-C:\Users\josep\source\repos\Gestion_Recettes\ServiceRecettes\obj\Debug\ServiceRecettes.csproj.CoreCompileInputs.cache
 C:\Users\josep\source\repos\Gestion_Recettes\ServiceRecettes\obj\Debug\ServiceRecettes.csproj.CopyComplete
 C:\Users\josep\source\repos\Gestion_Recettes\ServiceRecettes\obj\Debug\ServiceRecettes.exe
 C:\Users\josep\source\repos\Gestion_Recettes\ServiceRecettes\obj\Debug\ServiceRecettes.pdb
