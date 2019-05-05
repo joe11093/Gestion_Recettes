@@ -7,12 +7,12 @@ using System.Text;
 
 namespace Share
 {
-    public class ServiceRecettes : IServiceRecettes
+    public class Service : IServiceRecettes
     {
         public List<Recette> Recettes { get; set; }
         public List<Recette> SelectionCourante { get; set; }
 
-        public ServiceRecettes()
+        public Service()
         {
             SelectionCourante = new List<Recette>();
             Recettes = new List<Recette>();
@@ -43,7 +43,7 @@ namespace Share
 
         }
 
-        public ServiceRecettes(List<Recette> recettes)
+        public Service(List<Recette> recettes)
         {
             Recettes = recettes;
             SelectionCourante = new List<Recette>();
