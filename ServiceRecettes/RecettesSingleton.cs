@@ -12,7 +12,7 @@ namespace ServiceRecettes
         private static RecettesSingleton instance;
         public static List<Recette> Recettes = new List<Recette>();
 
-        private RecettesSingleton()
+         static RecettesSingleton()
         {
             
             //add some default data
