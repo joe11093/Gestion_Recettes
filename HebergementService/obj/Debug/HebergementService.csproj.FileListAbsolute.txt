@@ -9,3 +9,14 @@ C:\Users\lenovo\source\repos\Gestion_Recettes\HebergementService\obj\Debug\Heber
 C:\Users\lenovo\source\repos\Gestion_Recettes\HebergementService\obj\Debug\HebergementService.csproj.CopyComplete
 C:\Users\lenovo\source\repos\Gestion_Recettes\HebergementService\obj\Debug\HebergementService.exe
 C:\Users\lenovo\source\repos\Gestion_Recettes\HebergementService\obj\Debug\HebergementService.pdb
+C:\Users\josep\source\repos\Gestion_Recettes\HebergementService\bin\Debug\HebergementService.exe.config
+C:\Users\josep\source\repos\Gestion_Recettes\HebergementService\bin\Debug\HebergementService.exe
+C:\Users\josep\source\repos\Gestion_Recettes\HebergementService\bin\Debug\HebergementService.pdb
+C:\Users\josep\source\repos\Gestion_Recettes\HebergementService\bin\Debug\Share.dll
+C:\Users\josep\source\repos\Gestion_Recettes\HebergementService\bin\Debug\Share.pdb
+C:\Users\josep\source\repos\Gestion_Recettes\HebergementService\bin\Debug\Share.dll.config
+C:\Users\josep\source\repos\Gestion_Recettes\HebergementService\obj\Debug\HebergementService.csprojAssemblyReference.cache
+C:\Users\josep\source\repos\Gestion_Recettes\HebergementService\obj\Debug\HebergementService.csproj.CoreCompileInputs.cache
+C:\Users\josep\source\repos\Gestion_Recettes\HebergementService\obj\Debug\HebergementService.csproj.CopyComplete
+C:\Users\josep\source\repos\Gestion_Recettes\HebergementService\obj\Debug\HebergementService.exe
+C:\Users\josep\source\repos\Gestion_Recettes\HebergementService\obj\Debug\HebergementService.pdb

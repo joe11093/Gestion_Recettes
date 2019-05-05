@@ -12,6 +12,7 @@ namespace HebergementService
     {
         static void Main(string[] args)
         {
+            //ClientBase<IServiceRecettes>.CacheSettings = CacheSettings.AlwaysOn;
             // Host the service within this EXE console application.
             using (ServiceHost serviceHost = new ServiceHost(typeof(ServiceRecettes)))
             {
@@ -26,7 +27,7 @@ namespace HebergementService
                     Console.ReadLine();
 
                     // Close the ServiceHost.
-                    serviceHost.Close();
+                    serviceHost.Abort();
                 }
                 catch (TimeoutException timeProblem)
                 {

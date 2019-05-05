@@ -9,3 +9,14 @@ C:\Users\lenovo\source\repos\Gestion_Recettes\Client\obj\Debug\Client.csproj.Cor
 C:\Users\lenovo\source\repos\Gestion_Recettes\Client\obj\Debug\Client.csproj.CopyComplete
 C:\Users\lenovo\source\repos\Gestion_Recettes\Client\obj\Debug\Client.exe
 C:\Users\lenovo\source\repos\Gestion_Recettes\Client\obj\Debug\Client.pdb
+C:\Users\josep\source\repos\Gestion_Recettes\Client\bin\Debug\Client.exe.config
+C:\Users\josep\source\repos\Gestion_Recettes\Client\bin\Debug\Client.exe
+C:\Users\josep\source\repos\Gestion_Recettes\Client\bin\Debug\Client.pdb
+C:\Users\josep\source\repos\Gestion_Recettes\Client\bin\Debug\Share.dll
+C:\Users\josep\source\repos\Gestion_Recettes\Client\bin\Debug\Share.pdb
+C:\Users\josep\source\repos\Gestion_Recettes\Client\bin\Debug\Share.dll.config
+C:\Users\josep\source\repos\Gestion_Recettes\Client\obj\Debug\Client.csprojAssemblyReference.cache
+C:\Users\josep\source\repos\Gestion_Recettes\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\josep\source\repos\Gestion_Recettes\Client\obj\Debug\Client.csproj.CopyComplete
+C:\Users\josep\source\repos\Gestion_Recettes\Client\obj\Debug\Client.exe
+C:\Users\josep\source\repos\Gestion_Recettes\Client\obj\Debug\Client.pdb
