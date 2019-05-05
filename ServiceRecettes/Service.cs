@@ -4,8 +4,9 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using Share;
 
-namespace Share
+namespace ServiceRecettes
 {
     public class Service : IServiceRecettes
     {
