@@ -85,7 +85,7 @@ namespace Client
         {
             List<Recette> selectionCourante = serviceProxy.RecupererSelection();
 
-            if(selectionCourante == null)
+            if(selectionCourante.Count < 1)
             {
                 Console.WriteLine("La selection courante est vide");
             }
