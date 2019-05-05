@@ -8,47 +8,37 @@ using Share;
 
 namespace ServiceRecettes
 {
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
     public class Service : IServiceRecettes
     {
-        public List<Recette> Recettes { get; set; }
+        RecettesSingleton Recettes { get; set; }
         public List<Recette> SelectionCourante { get; set; }
 
         public Service()
         {
             SelectionCourante = new List<Recette>();
-            Recettes = new List<Recette>();
-
-            
-
-        }
-
-        public Service(List<Recette> recettes)
-        {
-            Recettes = recettes;
-            SelectionCourante = new List<Recette>();
-
+            Recettes = RecettesSingleton.getInstance();
         }
 
         public string testerService(string msg)
         {
             return "Your test string: " + msg;
         }
+
         public List<Recette> RechRecettesParIngredient(string ingredient)
         {
-            List<Recette> resultat = new List<Recette>();
-
-            foreach (Recette recette in Recettes)
+            List<Recette> resultat;
+            resultat = this.Recettes.RechRecettesParIngredient(ingredient);
+            if (resultat.Count < 1)
             {
-                foreach (Ingredient ingre in recette.Ingredients)
-                {
-                    if (ingre.Nom.Equals(ingredient))
-                    {
-                        resultat.Add(recette);
-                    }
-                }
+                //pas de resultats
+                return null;
             }
-            this.SelectionCourante = resultat;
-            return resultat;
+            else
+            {
+                this.SelectionCourante = resultat;
+                return resultat;
+            }
         }
 
         //search for recette by string in the selectioncourante
@@ -74,27 +64,20 @@ namespace ServiceRecettes
         //si non, ajouter la recette et return true
         public bool AjouterRecette(Recette recette)
         {
-            foreach(Recette rec in Recettes)
-            {
-                if (rec.Nom.Equals(recette.Nom))
-                {
-                    return false;
-                }
-            }
-            Recettes.Add(recette);
-            return true;
+            return this.Recettes.addRecette(recette);
+            
         }
 
         
 
         public List<Recette> RecupererSelection()
         {
-            return Recettes;
+            return this.SelectionCourante;
         }
 
         public List<Recette> GetAllRecettes()
         {
-            return this.Recettes;
+            return Recettes.RecupererToutesRecettes();
         }
     }
 }

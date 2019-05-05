@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Share
 {
-    [ServiceContract]
+    [ServiceContract(SessionMode = SessionMode.Required)]
     public interface IServiceRecettes
     {
 

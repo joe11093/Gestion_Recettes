@@ -10,11 +10,11 @@ namespace ServiceRecettes
     class RecettesSingleton
     {
         private static RecettesSingleton instance;
-        public List<Recette> Recettes { get; }
+        public static List<Recette> Recettes = new List<Recette>();
 
         private RecettesSingleton()
         {
-            this.Recettes = new List<Recette>();
+            
             //add some default data
             List<Ingredient> ing1 = new List<Ingredient>();
             ing1.Add(new Ingredient("bread"));
@@ -52,15 +52,40 @@ namespace ServiceRecettes
         //add recette
         public bool addRecette(Recette recette)
         {
-            foreach(Recette rec in this.Recettes)
+            foreach(Recette rec in Recettes)
             {
                 if (rec.Nom.Equals(recette.Nom))
                 {
                     return false;
                 }
             }
-            this.Recettes.Add(recette);
+            Recettes.Add(recette);
             return true;
+        }
+
+        //recherche par ingredient
+        public List<Recette> RechRecettesParIngredient(string ingredient)
+        {
+            List<Recette> resultat = new List<Recette>();
+
+            foreach (Recette recette in Recettes)
+            {
+                foreach (Ingredient ingre in recette.Ingredients)
+                {
+                    if (ingre.Nom.Equals(ingredient))
+                    {
+                        resultat.Add(recette);
+                    }
+                }
+            }
+            
+            return resultat;
+        }
+
+        //recuperer toute les recettes
+        public List<Recette> RecupererToutesRecettes()
+        {
+            return Recettes;
         }
     }
 }

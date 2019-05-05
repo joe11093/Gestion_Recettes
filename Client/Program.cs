@@ -68,7 +68,7 @@ namespace Client
             ingRecherche = Console.ReadLine();
             Console.WriteLine("Recherche de recettes contenant l'ingredient: \"" + ingRecherche + "\"");
             resultatsRecherche = serviceProxy.RechRecettesParIngredient(ingRecherche);
-            if(resultatsRecherche.Count == 0)
+            if (resultatsRecherche == null)
             {
                 Console.WriteLine("Aucune recette contient l'ingredient \"" + ingRecherche + "\"");
             }
