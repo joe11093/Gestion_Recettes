@@ -17,12 +17,19 @@ namespace Client
             serviceProxy = new ChannelFactory<IServiceRecettes>("RecetteServiceConfiguration").CreateChannel();
             Console.WriteLine("Done!");
 
-            Console.WriteLine(serviceProxy.testerService("CLIENT"));
-            
+            //Console.WriteLine(serviceProxy.testerService("CLIENT"));
+
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("Menu\n1: Recherche de recette\n2: Afficher la selection courante\n3: Supprimer une recette de la selection courante\n4: Ajouter une recette\nChoisissez votre actions:\n5: Afficher toute les recherches");
+                Console.WriteLine("\n\n   ****** Menu ******\n" +
+                                    "  1: Rechercher de recette par ingredient\n" +
+                                    "  2: Afficher la selection courante des recettes\n" +
+                                    "  3: Supprimer une recette de la selection courante\n" +
+                                    "  4: Ajouter une recette\n" +
+                                    "  5: Afficher toutes les recettes\n" +
+                                    "  0: Quitter\n" +
+                                    "- Veuillez choisir une option \n");
                 String userInput = Console.ReadLine();
                 int choice;
                 bool isNumeric = int.TryParse(userInput, out choice);
@@ -45,19 +52,21 @@ namespace Client
                         case 5:
                             option5();
                             break;
+                        case 0:
+                            System.Environment.Exit(0);
+                            break;
                         default:
-                            Console.WriteLine("\nChoisissez l'une des options du menu");
+                            Console.WriteLine("- Veuillez choisir une des options du menu ");
                             break;
                     }
+                    Console.WriteLine("\nAppuyez sur Entrer pour continuer ...");
                     Console.ReadKey();
                 }
                 else
                 {
-                    Console.WriteLine("\nVotre choix doit être un entier");
+                    Console.WriteLine("- Vous devez choisir un entier!");
                 }
             }
-            
-
         }
 
         //recherche par ingredient
@@ -65,17 +74,17 @@ namespace Client
         {
             String ingRecherche;
             List<Recette> resultatsRecherche;
-            Console.WriteLine("\nEntrez le nom d'un ingredient: ");
+            Console.Write("- Entrez le nom de l'ingredient: ");
             ingRecherche = Console.ReadLine();
-            Console.WriteLine("Recherche de recettes contenant l'ingredient: \"" + ingRecherche + "\"");
+            Console.WriteLine("\nRecherche en cours ...");
             resultatsRecherche = serviceProxy.RechRecettesParIngredient(ingRecherche);
             if (resultatsRecherche == null)
             {
-                Console.WriteLine("Aucune recette contient l'ingredient \"" + ingRecherche + "\"");
+                Console.WriteLine("\n*** Aucune recette ne contient l'ingredient \"" + ingRecherche + "\"!");
             }
             else
             {
-                Console.WriteLine("On a trouvé " + resultatsRecherche.Count + " resultats\n");
+                Console.WriteLine("\n" + resultatsRecherche.Count + " recette(s) trouvée(s):");
                 imprimerListe(resultatsRecherche);
             }
         }
@@ -85,9 +94,9 @@ namespace Client
         {
             List<Recette> selectionCourante = serviceProxy.RecupererSelection();
 
-            if(selectionCourante.Count < 1)
+            if (selectionCourante.Count < 1)
             {
-                Console.WriteLine("La selection courante est vide");
+                Console.WriteLine("\n*** La sélection courante est vide! ");
             }
             else
             {
@@ -98,22 +107,22 @@ namespace Client
         //supprimer une recette de la selection courante
         public static void option3()
         {
-            Console.WriteLine("Ecrivez le nom de la recette à supprimer: ");
+            Console.Write("\n- Donnez le nom de la recette à supprimer: ");
             String aSupprimer = Console.ReadLine();
 
             if (aSupprimer.Length == 0)
             {
-                Console.WriteLine("Vous n'avez rien écrit");
+                Console.WriteLine("*** Vous n'avez rien écrit");
                 return;
             }
 
             bool res = serviceProxy.SupprimerRecetteDeSelectionCourante(aSupprimer);
             if (res)
             {
-                Console.WriteLine("La recette \"" + aSupprimer + "\" a été supprimée");
+                Console.WriteLine("*** La recette \"" + aSupprimer + "\" a été supprimée avec succés");
                 return;
             }
-            Console.WriteLine("La recette \"" + aSupprimer + "\" n'a pas été supprimée");
+            Console.WriteLine("*** La recette \"" + aSupprimer + "\" n'a pas été supprimée ou n'existe pas dans la sélection courante!");
         }
 
         //ajouter une recette a la liste principale
@@ -122,43 +131,44 @@ namespace Client
             String nom;
             List<Ingredient> ingredients = new List<Ingredient>();
 
-            Console.WriteLine("Quel est le nom de la recette à ajouter?");
+            Console.Write("\n- Donnez le nom de la recette à ajouter: ");
             nom = Console.ReadLine();
-            if(nom.Length == 0 || nom == null)
+            if (nom.Length == 0 || nom == null)
             {
-                Console.WriteLine("Le nom de la recette est obligatoire.");
+                Console.WriteLine("*** Le nom de la recette est obligatoire.");
                 return;
             }
-            Console.WriteLine("Quel est le nombre d'ingredients de votre recette?");
+            Console.Write("- Donnez le nombre d'ingredients de la recette: ");
             String userInput = Console.ReadLine();
             int nbing;
             bool isNumeric = int.TryParse(userInput, out nbing);
 
             if (!isNumeric)
             {
-                Console.WriteLine("Le nombre d'ingredients doit etre un chiffre....");
+                Console.WriteLine("*** Le nombre d'ingredients doit être un chiffre....");
                 return;
             }
-            if(nbing < 1)
+            if (nbing < 1)
             {
-                Console.WriteLine("Le nombre d'ingredients doit être 1 au minimum");
+                Console.WriteLine("*** Le nombre d'ingredients doit être supérieur à 0");
                 return;
             }
 
-            for(int i = 0; i < nbing; i++)
+            for (int i = 0; i < nbing; i++)
             {
-                Console.WriteLine("Entrez l'ingredient #" + i + ": ");
+                Console.Write("\tEntrez l'ingredient N°" + (i + 1) + ": ");
                 string ing = Console.ReadLine();
                 ingredients.Add(new Ingredient(ing));
             }
-            Console.WriteLine("On essaye d'ajouter votre recette....");
+            Console.WriteLine("\nAjout de la recette en cours ...");
             Recette recette = new Recette(nom, ingredients);
             bool success = serviceProxy.AjouterRecette(recette);
-            if (success){
-                Console.WriteLine("Votre recette a été ajoutée");
+            if (success)
+            {
+                Console.WriteLine("*** Votre recette a été ajoutée avec succés!");
                 return;
             }
-            Console.WriteLine("On n'a pas pu ajouter votre recette");
+            Console.WriteLine("*** Votre recette n'a pas pu être ajouté!");
         }
 
         public static void option5()
@@ -173,16 +183,17 @@ namespace Client
 
             for (int i = 0; i < list.Count; i++)
             {
-                stringBuilder.Append("=====" + list[i].Nom + "=====\n");
-                stringBuilder.Append("Ingredients\n");
+                stringBuilder.Append("======= " + list[i].Nom + " =======\n");
+                stringBuilder.Append("-Ingredients : [");
                 foreach (Ingredient ingredient in list[i].Ingredients)
                 {
-                    stringBuilder.Append("\t" + ingredient.Nom + "\n");
+                    stringBuilder.Append(" " + ingredient.Nom + " ");
                 }
-               
+                stringBuilder.Append("].\n\n");
+
             }
             Console.WriteLine(stringBuilder.ToString());
-            //Console.WriteLine(list[0].Nom + "...." + list[1].Nom);
         }
     }
 }
+
