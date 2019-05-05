@@ -11,7 +11,6 @@ namespace Client
     class Program
     {
         public static IServiceRecettes serviceProxy;
-        public static List<Recette> selectionCourante = new List<Recette>();
 
         static void Main(string[] args)
         {
@@ -22,7 +21,8 @@ namespace Client
             
             while (true)
             {
-                Console.WriteLine("Menu\n1: Recherche de recette\n2: Afficher la selection courante\n3: Supprimer une recette de la selection courante\n4: Ajouter une recette\nChoisissez votre actions:");
+                Console.Clear();
+                Console.WriteLine("Menu\n1: Recherche de recette\n2: Afficher la selection courante\n3: Supprimer une recette de la selection courante\n4: Ajouter une recette\nChoisissez votre actions:\n5: Afficher toute les recherches");
                 String userInput = Console.ReadLine();
                 int choice;
                 bool isNumeric = int.TryParse(userInput, out choice);
@@ -49,6 +49,7 @@ namespace Client
                             Console.WriteLine("\nChoisissez l'une des options du menu");
                             break;
                     }
+                    Console.ReadKey();
                 }
                 else
                 {
@@ -75,7 +76,6 @@ namespace Client
             else
             {
                 Console.WriteLine("On a trouvé " + resultatsRecherche.Count + " resultats\n");
-                selectionCourante = resultatsRecherche;
                 imprimerListe(resultatsRecherche);
             }
         }
@@ -83,7 +83,9 @@ namespace Client
         //afficher la selection courante
         public static void option2()
         {
-            if(selectionCourante.Count == 0)
+            List<Recette> selectionCourante = serviceProxy.RecupererSelection();
+
+            if(selectionCourante == null)
             {
                 Console.WriteLine("La selection courante est vide");
             }
@@ -105,16 +107,13 @@ namespace Client
                 return;
             }
 
-            foreach(Recette recette in selectionCourante){
-                if (recette.Nom.Equals(aSupprimer))
-                {
-                    selectionCourante.Remove(recette);
-                    Console.WriteLine("La recette \"" + aSupprimer + "\" a été suppriméee\n");
-                    return;
-                }
-                Console.WriteLine("La recette \"" + aSupprimer + "\" n'est as dans votre selection courante\n");
+            bool res = serviceProxy.SupprimerRecetteDeSelectionCourante(aSupprimer);
+            if (res)
+            {
+                Console.WriteLine("La recette \"" + aSupprimer + "\" a été supprimée");
+                return;
             }
-            Console.WriteLine("\nSupprimer");
+            Console.WriteLine("La recette \"" + aSupprimer + "\" n'a pas été supprimée");
         }
 
         //ajouter une recette a la liste principale
